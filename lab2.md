@@ -18,32 +18,31 @@ Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Ipsum non obcaecati m
 ## My Code
 
 ```rust
-fn is_magic_packet(packet: &[u8]) -> bool {
-    if packet.len() < 102 {
-        return false;
-    }
+#[tokio::main]
+async fn main() -> Result<()> {
+    // Создаем UDP сокет и привязываем его к адресу
+    let addr = SocketAddr::new(Ipv4Addr::new(0, 0, 0, 0).into(), WOL_PORT);
+    let socket = UdpSocket::bind(&addr).await.unwrap();
+    println!("Listening for WOL packets on {}", addr);
 
-    // Проверяем первые 6 байтов (должны быть 0xFF)
-    for i in 0..6 {
-        if packet[i] != 0xFF {
-            return false;
+    let mut buf = [0; 102]; // Буфер для приема пакетов
+
+    loop {
+        let (len, _src) = socket.recv_from(&mut buf).await.unwrap();
+
+        // Проверяем, является ли пакет "magic packet"
+        if is_magic_packet(&buf[..len]) {
+            #[cfg(target_os = "windows")]
+            {
+                if !is_admin() {
+                    eprintln!("Please run this program as an administrator.");
+                    break Ok(());
+                }
+            }
+        
+            shutdown();
         }
     }
-
-    // Проверяем, что MAC-адрес повторяется 16 раз
-    let macs = &packet[6..];
-    let mac_len = macs.len();
-    if mac_len % 6 != 0 {
-        return false;
-    }
-
-    for i in (0..mac_len).step_by(6) {
-        if &macs[i..i + 6] != &macs[0..6] {
-            return false;
-        }
-    }
-
-    true
 }
 ```
 ## My Contact
