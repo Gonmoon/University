@@ -15,22 +15,16 @@ ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 
+/*-----Импорты-----*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*-----Адаптив-----*/
 $maxWidth: 1440;
-@function adaptNum($Size: 0, $bigAdaptive: false) {
-  @if ($bigAdaptive) {
-    // Меняем под ширину больше шаблона
-    @return calc($Size * 100 / $maxWidth * 1vw);
-  } @else {
-    // Не меняем под ширину больше шаблона(по умолчанию)
-    @if ($maxWidth <= 100vw) {
-      @return calc($Size * 100 / $maxWidth * 1vw);
-    } @else {
-      @return ($Size + px)
-    }
-  }
+@function adaptNum($Size: 0, $MinSize: 1) {
+  $adaptSize: calc($Size * 100 / $maxWidth * 1vw);
+  $Size: ($Size + px);
+  $MinSize: ($MinSize + px);
+  @return clamp($MinSize, $adaptSize, $Size);
 }
 
 :root {
@@ -58,19 +52,17 @@ $maxWidth: 1440;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding: 16px 80px;
+  padding: 16px adaptNum(80);
   background: #FFFFFF;
   &__logo {
-    margin: 0 14.92% 0 0;
+    margin: 0 adaptNum(190) 0 0;
   }
   &__logo-img {
   }
   &__nav {
-    justify-self: center;
   }
   &__ul {
     display: flex;
-    justify-content: center;
     align-items: center;
   }
   &__li {
