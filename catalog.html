@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Catalog</title>
+	<script type="module" src="/src/main.js" defer></script>
+</head>
+<body>
+	<widget-header></widget-header>
+	<h1 class="header-catalog">КОТалог</h1>
+	<div class="wrapper-logic">
+		<input type="text" class="wrapper-logic__search" id="search" placeholder="Искать">
+		<select name="categories" id="sort" class="wrapper-logic__categories">
+			<option value="default">Сортировать по</option>
+			<option value="name">Название</option>
+			<option value="price">Цена(↑)</option>
+			<option value="style">Стиль</option>
+		</select>
+		<div class="wrapper-logic__controls">
+        	<button class="wrapper-logic__button" id="reset">Сбросить</button>
+        	<button class="wrapper-logic__button" id="sortByName">Сортировать по названию (A-Z)</button>
+        	<button class="wrapper-logic__button" id="sortByPriceAsc">Сортировать по цене (↑)</button>
+        	<button class="wrapper-logic__button" id="sortByPriceDesc">Сортировать по цене (↓)</button>
+        	<button class="wrapper-logic__button" id="filterExpensive">Дорогие товары (>50,000₽)</button>
+        	<button class="wrapper-logic__button" id="filterCheap">Дешевые товары (>10,000₽)</button>
+        	<button class="wrapper-logic__button" id="filterInStock">Только в наличии</button>
+        	<button class="wrapper-logic__button" id="mapPrices">Цены со скидкой 20%</button>
+        	<button class="wrapper-logic__button" id="totalValue">Общая стоимость</button>
+    	</div>
+	</div>
+	<div class="catalog" id="catalog"></div>
+	<widget-footer></widget-footer>
+</body>
+</html>

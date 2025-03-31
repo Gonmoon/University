@@ -1,0 +1,546 @@
+@media (max-width: 768px) {
+	.wrapper {
+		margin: 0;
+		border: 0px solid #000;
+		width: 768px;
+	}
+	.header {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 10px;
+		&__logo {
+			margin: 0 5px 0 0;
+		}
+		&__logo-img {
+		}
+		&__nav {
+		}
+		&__ul {
+		}
+		&__li {
+		}
+		&__link {
+			font-size: 20px;
+			line-height: 24px;
+			font-weight: bold;
+		}
+		&__li_fix {
+		}
+		&__button {
+			width: 100%;
+			height: 60px;
+			margin: 0;
+			font-size: 24px;
+			background: transparent;
+			color: #000;
+			border-top: 1px solid #222;
+			border-radius: 0;
+		}
+	}
+	.button {
+		font-size: 24px;
+	}
+	.about {
+		&__contact {
+		}
+		&__h2 {
+			font-size: 48px;
+			line-height: 44px;
+		}
+		&__span-blue {
+		}
+		&__signature {
+			font-size: 24px;
+			line-height: 27px;
+		}
+		&__sing-up {
+		}
+		&__imgs {
+			margin: 40px 0 0 0;
+			display: none;
+		}
+		&__img-1 {
+		}
+		&__img-2 {
+		}
+		&__img-3 {
+		}
+		&__companies {
+			padding: 10px 10px 50px 10px;
+		}
+		&__text {
+			line-height: 27px;
+    		font-size: 28px;
+		}
+		&__companies-loges {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		&__li {
+			margin: 10px;
+		}
+		&__companie-img {
+		}
+	}
+	.sing-up {
+		&__sing-up {
+			line-height: 24px;
+   			font-size: 20px;
+   			height: 60px;
+		}
+		&__button {
+			width: 150px;
+			height: 60px;
+		}
+		&__text {
+			line-height: 18px;
+    		font-size: 16px;
+		}
+		&__info {
+			line-height: 18px;
+    		font-size: 16px;
+		}
+	}
+	.button_white {
+	}
+	.heading {
+		&__head {
+			font-size: 24px;
+    		line-height: 24px;
+    		width: 140px;
+		}
+		&__short-info {
+			font-size: 34px;
+    		line-height: 35.2px;
+		}
+		&__span-orange {
+		}
+		&__text {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+	}
+	.features {
+		&__imgs {
+			position: absolute;
+			opacity: 0.4;
+		}
+		&__img-1 {
+		}
+		&__img-2 {
+		}
+		&__article {
+			z-index: 5;
+		}
+		&__full-info {
+			margin: 0 0 0 50px;
+		}
+		&__part-info {
+			&:nth-child(odd) {
+      			margin: 38px 50px 0 0;
+    		}
+		}
+		&__part-info_1 {
+		}
+		&__h3 {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+		&__local-info {
+			font-size: 18px;
+    		line-height: 21px;
+		}
+		&__part-info_2 {
+		}
+		&__part-info_fix {
+		}
+		&__part-info_3 {
+		}
+		&__part-info_4 {
+		}
+	}
+	
+	.stats {
+		flex-wrap: wrap;
+		&__heading {
+			margin: 0 0 15px 0;
+		}
+		&__head {
+			font-size: 24px;
+    		line-height: 24px;
+    		width: 110px;
+		}
+		&__short-info {
+			font-size: 34px;
+    		line-height: 35.2px;
+		}
+		&__span-green {
+		}
+		&__info {
+		}
+		&__text {
+			font-size: 20px;
+    		line-height: 27px;
+		}
+		&__statistics {
+		}
+		&__column {
+		}
+		&__percent {
+			font-size: 48px;
+    		line-height: 57.6px;
+		}
+		&__percent-info {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+	}
+	.team {
+		flex-wrap: wrap;
+		&__heading {
+			margin: 0 80px;
+		}
+		&__head {
+			font-size: 24px;
+    		line-height: 24px;
+    		width: 110px;
+		}
+		&__short-info {
+			font-size: 34px;
+    		line-height: 35.2px;
+		}
+		&__span {
+		}
+		&__text {
+			font-size: 20px;
+    		line-height: 27px;
+		}
+		&__button {
+			font-size: 26px;
+			width: 220px;
+			height: 60px;
+		}
+		&__imgs {
+			flex-direction: row;
+			width: 100%;
+			margin: 10px 0 0 0;
+		}
+		&__img {
+		}
+	}
+	.buy {
+		&__logo {
+		}
+		&__h2 {
+			font-size: 40px;
+		    line-height: 35.2px;
+		}
+		&__p {
+			font-size: 24px;
+		    line-height: 27px;
+		}
+		&__buttons {
+		}
+		&__button {
+		}
+		&__button_first {
+			width: 200px;
+			height: 60px;
+			font-size: 28px;
+		}
+		&__button_second {
+			width: 200px;
+			height: 60px;
+			font-size: 28px;
+		}
+	}
+	.process {
+		flex-wrap: wrap;
+		&__heading {
+			padding: 0 0 95px 0;
+		}
+		&__head {
+			font-size: 32px;
+    		line-height: 24px;
+    		width: 170px;
+    		height: 32px;
+		}
+		&__short-info {
+			font-size: 34px;
+    		line-height: 35.2px;
+		}
+		&__button {
+			width: 200px;
+			height: 60px;
+			font-size: 26px;
+		}
+		&__queue {
+			margin: 0 0 0 120px;
+		}
+		&__line {
+		}
+		&__info-1 {
+		}
+		&__h3 {
+			font-size: 24px;
+    		line-height: 24px;
+		}
+		&__p {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+		&__info-2 {
+		}
+		&__info-3 {
+		}
+	}
+	.slider {
+		&__arrow-left {
+			display: none;
+		}
+		&__center {
+		}
+		&__info {
+			padding: 30px 10px 0;
+		}
+		&__info-logo {
+			width: 200px;
+		}
+		&__info-p {
+			font-size: 32px;
+    		line-height: 33.6px;
+		}
+		&__info-ava {
+			width: 120px;
+		}
+		&__info-nik {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+		&__info-signature {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+		&__status {
+			margin: 0 0 100px 0;
+			position: relative;
+			&:before {
+				content: "";
+      			width: 62px;
+      			height: 63px;
+      			background: no-repeat center url("/arrow-left.svg");
+      			position: absolute;
+      			z-index: 2;
+      			top: -16px;
+      			left: 240px;
+			}
+			&:after {
+				content: "";
+      			width: 62px;
+      			height: 63px;
+      			background: no-repeat center url("/arrow-right.svg");
+      			position: absolute;
+      			z-index: 2;
+      			top: -16px;
+      			left: 460px;
+      		}
+		}
+		&__status-block {
+		}
+		&__status-block_included {
+		}
+		&__arrow-right {
+			display: none;
+		}
+	}
+	.contact {
+		display: none;
+		&__wrapper {
+		}
+		&__info {
+		}
+		&__h2 {
+			font-size: 48px;
+    		line-height: 35.2px;
+		}
+		&__p {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+		&__form {
+		}
+		&__sing-up {
+			line-height: 24px;
+    		font-size: 20px;
+    		height: 60px;
+    		width: 300px;
+		}
+		&__button {
+			width: 130px;
+			height: 60px;
+		}
+		&__text {
+			line-height: 18px;
+    		font-size: 16px;
+		}
+		&__about {
+			line-height: 18px;
+    		font-size: 16px;
+		}
+	}
+	.button_dark {
+	}
+	.blog {
+		&__head-wrapper {
+		}
+		&__heading {
+			margin: 0;
+		}
+		&__head {
+			font-size: 32px;
+    		line-height: 24px;
+    		width: 120px;
+    		height: 32px;
+		}
+		&__short-info {
+			font-size: 34px;
+    		line-height: 35.2px;
+		}
+		&__span-blue {
+		}
+		&__text {
+			font-size: 20px;
+    		line-height: 27px;
+		}
+		&__button {
+			display: none;
+		}
+		&__any-blogs {
+			justify-content: center;
+		}
+		&__article {
+		}
+		&::after {
+			content: "View all blogs";
+			color: #FFF;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			background: #1E313B;
+			width: 200px;
+			height: 42px;
+			justify-self: center;
+			font-size: 16px;
+			line-height: 24;
+			border-radius: 6px;
+			margin: 32px 0 0 0;
+		}
+	}
+	.article {
+		margin: 0;
+		&__img {
+		}
+		&__h3 {
+			font-size: 26px;
+    		line-height: 33.6px;
+		}
+		&__p {
+			font-size: 20px;
+    		line-height: 24px;
+		}
+		&__user {
+		}
+		&__ava {
+			width: 60px;
+			height: 60px;
+		}
+		&__user-info {
+		}
+		&__user-name {
+			font-size: 18px;
+    		line-height: 21px;
+		}
+		&__date {
+			font-size: 18px;
+    		line-height: 21px;
+		}
+		&__time-read {
+			font-size: 18px;
+    		line-height: 21px;
+		}
+	}
+	.desig {
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+		&__info {
+			margin: 0;
+		}
+		&__h2 {
+			font-size: 60px;
+    		line-height: 61.6px;
+		}
+		&__p {
+			font-size: 24px;
+    		line-height: 27px;
+		}
+		&__button {
+			font-size: 32px;
+			width: 250px;
+			height: 80px;
+			margin: 15px 0 0 0;
+		}
+	}
+	.footer {
+		display: flex;
+		flex-wrap: wrap;
+		&__line-first {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		&__logo {
+			margin: 0;
+		}
+		&__nav {
+		}
+		&__nav-point {
+			margin: 16px 10px;
+			font-size: 24px;
+    		line-height: 24px;
+		}
+		&__nav-point_fix {
+		}
+		&__contacts {
+		}
+		&__contact {
+		}
+		&__contact-img {
+			height: 24px;
+			width: 24px;
+		}
+		&__line-second {
+			display: flex;
+		    flex-wrap: wrap;
+		}
+		&__webflow {
+			font-size: 20px;
+    		line-height: 21px;
+    		position: relative;
+    		left: 11.5%;
+		}
+		&__webflow-link {
+		}
+		&__policy {
+			display: none;
+		}
+		&__point-policy {
+			font-size: 20px;
+    		line-height: 21px;
+		}
+	}
+	.none {
+		display: none;
+	}
+}
