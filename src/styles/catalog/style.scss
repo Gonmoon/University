@@ -73,6 +73,7 @@
 	cursor: pointer;
 	box-shadow: 3px 3px 10px #000;
 	height: 405px;
+	animation: fadeIn 0.6s ease-out;
 
 	&:hover {
 		transform: scale(1.02);
@@ -113,4 +114,10 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 52px;
+}
+
+// -----Анимации-----
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }

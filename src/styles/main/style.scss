@@ -69,6 +69,11 @@ $maxWidth: 1440;
   margin: 0 auto;
   border-left: 3px solid #000;
   border-right: 3px solid #000;
+
+  &::selection {
+    background: transparent;
+    color: #FFF;
+  }
 }
 .header {
   display: grid;
@@ -104,6 +109,7 @@ $maxWidth: 1440;
     color: #1E313B;
     font-size: 16px;
     line-height: 24px;
+    transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     &:hover {
       color: #794EFF;
     }
@@ -115,6 +121,15 @@ $maxWidth: 1440;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background 0.3s ease;
+
+    &:active {
+      background: red;
+    }
+
+    &:hover {
+      background: #794EFF;
+    }
   }
 }
 
@@ -132,6 +147,9 @@ $maxWidth: 1440;
     color: #FFFFFF;
     margin: 0 50px 13px 0;
     line-height: 44px;
+    &::first-line {
+      color: #794EFF;
+    }
   }
   &__span-blue {
     color: #794EFF;
@@ -190,8 +208,13 @@ $maxWidth: 1440;
   }
   &__li {
     margin: 0 48px 0 0;
+    cursor: pointer;
+    transition: transform 0.5s ease;
     &:first-child {
       margin: 0 48px 0 35px;
+    }
+    &:hover {
+      transform: scale(1.2);
     }
   }
   &__companie-img {
@@ -212,9 +235,13 @@ $maxWidth: 1440;
     line-height: 24px;
     font-size: 16px;
     border: 1px solid #000;
+    transition: border 0.3s ease;
 
     &::placeholder {
       color: #000;
+    }
+    &:hover {
+      border: 1px solid #794EFF;
     }
 
     &_small {
@@ -224,6 +251,12 @@ $maxWidth: 1440;
   &__button {
     height: 44px;
     width: 88px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      color: #794EFF;
+      transform: scale(1.1);
+    }
   }
   &__text {
     line-height: 18px;
@@ -291,6 +324,10 @@ $maxWidth: 1440;
     font-size: 16px;
     line-height: 24px;
     color: #1E313B;
+
+    &::first-letter {
+      font-size: 24px;
+    }
     &_big {
       font-size: 18px;
       line-height: 27px;
@@ -309,6 +346,7 @@ $maxWidth: 1440;
     width: 590px;
     margin: 48px 80px 0 0;
     position: relative;
+    animation: float 2s ease-in-out infinite;
   }
   &__img-1 {
     border-radius: 16px;
@@ -420,6 +458,7 @@ $maxWidth: 1440;
     color: #97E747;
     font-size: 48px;
     line-height: 57.6px;
+    animation: pulse 2s ease infinite;
   }
   &__percent-info {
     font-size: 16px;
@@ -499,6 +538,11 @@ $maxWidth: 1440;
   &__button {
     width: 141px;
     height: 42px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #1E313B;
+    }
   }
   &__imgs {
     margin: 2px 0 0 0;
@@ -555,6 +599,7 @@ $maxWidth: 1440;
     &:hover {
       color: #FFF;
       background: #794EFF;
+      animation: fadeIn 0.6s ease-out;
     }
   }
 }
@@ -593,6 +638,12 @@ $maxWidth: 1440;
   &__button {
     width: 132px;
     height: 42px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
   }
   &__queue {
     color: #000;
@@ -738,6 +789,9 @@ $maxWidth: 1440;
     padding: 116px adaptNum(96) 96px adaptNum(96);
     display: flex;
     height: 315px;
+    &:hover {
+      animation: fadeIn 0.3s ease-out;
+    }
   }
   &__info {
     color: #1E313B;
@@ -780,6 +834,11 @@ $maxWidth: 1440;
     height: 44px;
     width: 88px;
     padding: 10px 15px 12px 15px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #794EFF;
+    }
   }
   &__text {
     line-height: 18px;
@@ -843,6 +902,11 @@ $maxWidth: 1440;
     font-size: 16px;
     line-height: 24px;
     padding: 8px 15px 10px 15px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #794EFF;
+    }
   }
   &__any-blogs {
     margin: 30px 0 0 0;
@@ -907,6 +971,7 @@ $maxWidth: 1440;
   color: #FFF;
   &__info {
     margin: 0 adaptNum(495) 0 0;
+    animation: breathe 3s ease-in-out infinite;
   }
   &__h2 {
     font-size: 56px;
@@ -923,6 +988,11 @@ $maxWidth: 1440;
     margin: adaptNum(26) 0 0 0;
     font-size: 18px;
     line-height: 27px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 15px #4d90fe;
+    }
   }
 }
 
@@ -987,4 +1057,25 @@ $maxWidth: 1440;
     color: #794EFF;
     margin: 0 16px 0 0;
   }
+}
+
+// -----Анимации-----
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.7; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
