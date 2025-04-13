@@ -72,8 +72,9 @@
 	transition: all 0.3s ease;
 	cursor: pointer;
 	box-shadow: 3px 3px 10px #000;
-	height: 405px;
+	height: 445px;
 	animation: fadeIn 0.6s ease-out;
+	position: relative;
 
 	&:hover {
 		transform: scale(1.02);
@@ -99,6 +100,28 @@
 	&__description {
 		font-size: 16px;
 		font-weight: 300;
+	}
+	&__buttons {
+		display: flex;
+		position: absolute;
+		bottom: 0;
+	}
+	&__button {
+		width: 140px;
+		height: 40px;
+		font-weight: bold;
+		transition: background 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+		&:first-child {
+			border-radius: 5px 0 0 0;
+		}
+		&:last-child {
+			border-radius: 0 5px 0 0;
+		}
+
+		&:hover {
+			background: #7b56f1;
+		}
 	}
 }
 
