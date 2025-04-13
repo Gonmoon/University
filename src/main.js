@@ -25,15 +25,18 @@ const reset = document.getElementById('reset');
 
 let products = [];
 
-      const sortByNameBtn = document.getElementById('sortByName');
-        const sortByPriceAscBtn = document.getElementById('sortByPriceAsc');
-        const sortByPriceDescBtn = document.getElementById('sortByPriceDesc');
-        const filterExpensiveBtn = document.getElementById('filterExpensive');
-        const filterCheapBtn = document.getElementById('filterCheap');
-        const filterInStockBtn = document.getElementById('filterInStock');
-        const mapPricesBtn = document.getElementById('mapPrices');
-        const uniqueStylesBtn = document.getElementById('uniqueStyles');
-        const totalValueBtn = document.getElementById('totalValue');
+const sortByNameBtn = document.getElementById('sortByName');
+const sortByPriceAscBtn = document.getElementById('sortByPriceAsc');
+const sortByPriceDescBtn = document.getElementById('sortByPriceDesc');
+const filterExpensiveBtn = document.getElementById('filterExpensive');
+const filterCheapBtn = document.getElementById('filterCheap');
+const filterInStockBtn = document.getElementById('filterInStock');
+const mapPricesBtn = document.getElementById('mapPrices');
+const uniqueStylesBtn = document.getElementById('uniqueStyles');
+const totalValueBtn = document.getElementById('totalValue');
+
+const sortCategory = document.getElementById('sortCategory');
+
 
 async function loadCatalog() {
     try {
@@ -67,6 +70,32 @@ function renderCatalog(items) {
         `;
     });
 }
+
+
+// const categoriesSet = new Set(products.map(product => product.category));
+// console.log(categoriesSet);
+
+sortCategory.addEventListener('change', function() {
+  let selectedValue = this.value;
+  switch(selectedValue) {
+    case "furniture":
+        selectedValue = "Мебель";
+        break;
+    case "lighting":
+        selectedValue = "Освещение";
+        break;
+    case "decor":
+        selectedValue = "Декор";
+        break;
+    default:
+        selectedValue = "default"
+  }
+
+  if (selectedValue !== "default") {
+    let sortedProducts = products.filter(product => product.category === selectedValue);
+    renderCatalog(sortedProducts);
+  }
+});
 
 search.addEventListener('input', (e) => {
     const value = search.value.toLowerCase();
