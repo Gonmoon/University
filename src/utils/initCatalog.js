@@ -1,6 +1,7 @@
-import "../styles/catalog/style.scss"
+import "../styles/catalog/style.scss";
 import { initFavorites } from "./initFavorites.js";
 import { initPopup } from "./initPopup.js"; // Убрать
+// import { renderPagination } from "./renderPagination.js";
 import { API_URL, FAVORITES_URL, CART_URL } from '../api/api.js';
 
 const catalog = document.getElementById("catalog");
@@ -8,6 +9,7 @@ const catalog = document.getElementById("catalog");
 const search = document.getElementById("search");
 const sort = document.getElementById("sort");
 const reset = document.getElementById("reset");
+const sortCategory = document.getElementById("sortCategory");
 
 const sortByNameBtn = document.getElementById("sortByName");
 const sortByPriceAscBtn = document.getElementById("sortByPriceAsc");
@@ -34,7 +36,7 @@ async function renderCatalog(items) {
                 <img src="${item.photo_url || "https://via.placeholder.com/250"}" alt="product" class="catalog-cart__img">
                 <div class="catalog-cart__text-wrapper">
                     <p class="catalog-cart__name">${item.name}</p>
-                    <p class="catalog-cart__price">${item.price.toLocaleString()}₽</p>
+                    <p class="catalog-cart__price">${item.price}₽</p>
                 </div>
                 <p class="catalog-cart__description">${item.description}</p>
                 <p>${item.in_stock ? "✓ В наличии" : "✗ Нет в наличии"}</p>
@@ -62,7 +64,11 @@ async function fetchAndRenderProducts(queryParams = "") {
     try {
         const response = await fetch(`${API_URL}${queryParams}`);
         const products = await response.json();
-        await renderCatalog(products);
+        let totalPage = (Math.ceil(products.length / 10));
+
+        const answer = await renderPagination(totalPage, products, queryParams);
+        const productsPage = await answer.json();
+        await renderCatalog(productsPage);
     } catch (error) {
         console.error("Ошибка при загрузке данных:", error);
     }
@@ -90,7 +96,18 @@ async function initSorting() {
         
         fetchAndRenderProducts(sortParam ? `?${sortParam}` : "");
     });
-    
+
+    sortCategory.addEventListener("change", (e) => {
+    const selectedCategory = e.target.value;
+        let queryParams = "";
+        
+        if (selectedCategory !== "all") {
+            queryParams = `?category=${selectedCategory}`;
+        }
+        
+        fetchAndRenderProducts(queryParams);
+    });
+
     reset.addEventListener("click", (e) => {
         search.value = "";
         sort.value = "default";
@@ -114,14 +131,7 @@ async function initSorting() {
     });
     
     filterCheapBtn.addEventListener("click", async () => {
-        const response = await fetch(`${API_URL}?price_lte=10000`);
-        const filtered = await response.json();
-        
-        if (filtered.length) {
-            renderCatalog(filtered);
-        } else {
-            renderCatalog([{name: "Нет дешевых товаров", description: "Попробуйте другие фильтры"}]);
-        }
+        fetchAndRenderProducts("?price_lte=10000");
     });
     
     filterInStockBtn.addEventListener("click", () => {
@@ -160,6 +170,39 @@ async function initSorting() {
             console.error("Ошибка при расчете общей стоимости:", error);
         }
     });
+}
+
+
+// -----Pagination-----
+const paginationContainer = document.getElementById("pagination");
+let currentPage = 1;
+
+function renderPagination(pageCount, products, queryParams) {
+    let url = `http://localhost:3000/design_products?_page=${currentPage}&_limit=10&${queryParams.slice(1)}`;
+    paginationContainer.innerHTML = '';
+
+    for(let i = 1; i <= pageCount; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = "pagination__button";
+        
+        if(i === currentPage) {
+            pageButton.classList.add('pagination__button_active');
+        }
+
+        pageButton.addEventListener('click', () => {
+            currentPage = i;
+            url = `http://localhost:3000/design_products?_page=${i}&_limit=10&${queryParams.slice(1)}`;
+            fetch(url)
+                .then(response => response.json())
+                .then(json => renderCatalog(json))
+                .then(() => renderPagination(pageCount, products, queryParams));
+        });
+        
+        paginationContainer.appendChild(pageButton);
+    }
+
+    return fetch(url);
 }
 
 function initCatalog() {
