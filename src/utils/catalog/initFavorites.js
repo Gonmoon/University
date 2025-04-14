@@ -1,4 +1,4 @@
-import { API_URL, FAVORITES_URL, CART_URL } from '../api/api.js';
+import { API_URL, FAVORITES_URL, CART_URL } from '../../api/api.js';
 
 function deleteInFavorites(productId) {
     fetch(`${API_URL}?id=${productId}`)
