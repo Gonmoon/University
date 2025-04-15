@@ -10,6 +10,7 @@ customElements.define("widget-header", ComponentHeader);
 customElements.define("widget-footer", ComponentFooter);
 customElements.define("widget-popup", ComponentPopup);
 
+
 import { initCatalog } from "./utils/catalog/initCatalog.js";
 import { initBurger } from "./utils/initBurger.js";
 
