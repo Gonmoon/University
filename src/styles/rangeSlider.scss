@@ -1,8 +1,11 @@
 .range-slider {
-  width: 1000px;
+  width: 900px;
   margin: 20px 0;
   position: relative;
   height: 40px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   &__track {
     position: relative;

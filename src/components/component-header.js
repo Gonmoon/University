@@ -14,13 +14,13 @@ export class ComponentHeader extends HTMLElement {
                 <nav class="header__nav" id="main-nav">
                   <ul class="header__ul">
                     <li class="header__li">
-                        <a href="" class="header__link">Home</a>
+                        <a href="http://localhost:5173" class="header__link">Home</a>
                     </li>
                     <li class="header__li">
                         <a href="" class="header__link">About</a>
                     </li>
                     <li class="header__li">
-                        <a href="" class="header__link">Pricing</a></li>
+                        <a href="http://localhost:5173/catalog.html" class="header__link">Pricing</a></li>
                     <li class="header__li header__li_fix">
                         <a href="" class="header__link">Open positions</a>
                     </li>

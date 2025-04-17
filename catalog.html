@@ -5,11 +5,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Catalog</title>
 	<script type="module" src="/src/main.js" defer></script>
+	<script type="module" src="/src/loader/loadCatalog.js" defer></script>
 </head>
 <body>
 	<widget-header></widget-header>
 	<h1 class="header-catalog">КОТалог</h1>
 	<div class="wrapper-logic">
+		<div class="wrapper-logic__controls">
+			<a href="http://localhost:5173/favorites.html" class="wrapper-logic__button">Избранное</a>
+			<a href="http://localhost:5173/carts.html" class="wrapper-logic__button">Корзина</a>
+		</div>
 		<input type="text" class="wrapper-logic__search" id="search" placeholder="Искать">
 		<select name="categories" id="sort" class="wrapper-logic__categories">
 			<option value="default">Сортировать по</option>
