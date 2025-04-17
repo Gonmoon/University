@@ -1,6 +1,5 @@
 import { initFavorites } from "./initFavorites.js";
 import { initCart } from "./initCart.js";
-// import { initPopup } from "../initPopup.js"; // Убрать
 
 const catalog = document.getElementById("catalog");
 
@@ -32,14 +31,6 @@ async function renderCatalog(items) {
 
     await initFavorites();
     await initCart();
-
-    // Доделать
-    // catalog.querySelectorAll(".cart").forEach(btn => {
-    //     btn.addEventListener("click", (e) => {
-    //         // addToCart(e.target.dataset.id);
-    //         initPopup("Что-то", "Готово");
-    //     });
-    // })
 }
 
 export { renderCatalog };

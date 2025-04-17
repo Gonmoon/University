@@ -33,7 +33,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		margin: 10px 0 0 0;
+		padding: 10px 0 0 0;
+		background: #1E313B;
 	}
 	&__button {
 		background-color: #FFF;
@@ -173,4 +174,53 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
+}
+
+// -----Заказ-----
+.order {
+	display: flex;
+	flex-direction: column;
+	&__product {
+		display: flex;
+		justify-content: space-between;
+		margin: 10px 0 0 0;
+	}
+	&__name {
+	}
+	&__input {
+		padding: 0 0 0 10px;
+	}
+	&__hr {
+		margin: 20px 0;
+		border: none;
+  	border-top: 3px double #333;
+  	color: #333;
+  	overflow: visible;
+  	text-align: center;
+  	height: 5px;
+
+  	&::after {
+  		background: #fff;
+  		content: "§";
+  		padding: 0 4px;
+  		position: relative;
+  		top: -13px;
+  	}
+	}
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		color: #000;
+	}
+	&__sum {
+	}
+	&__button {
+		margin: 10px 0 0 0;
+		font-size: 24px;
+		border-radius: 3px;
+
+		&:hover {
+			color: #000;
+		}
+	}
 }
