@@ -13,9 +13,7 @@ const sortByPriceDescBtn = document.getElementById("sortByPriceDesc");
 const filterExpensiveBtn = document.getElementById("filterExpensive");
 const filterCheapBtn = document.getElementById("filterCheap");
 const filterInStockBtn = document.getElementById("filterInStock");
-const mapPricesBtn = document.getElementById("mapPrices");
 const uniqueStylesBtn = document.getElementById("uniqueStyles");
-const totalValueBtn = document.getElementById("totalValue");
 
 async function initSorting() {
     search.addEventListener("input", async (e) => {
@@ -77,39 +75,6 @@ async function initSorting() {
     
     filterInStockBtn.addEventListener("click", () => {
         renderPagination(true, "?in_stock=true");
-    });
-    
-    mapPricesBtn.addEventListener("click", async () => {
-        try {
-            const response = await fetch(API_URL);
-            const products = await response.json();
-            
-            await Promise.all(products.map(async product => {
-                await fetch(`${API_URL}/${product.id}`, {
-                    method: "PATCH",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        price: Math.round(product.price * 0.8),
-                        description: `${product.description}`
-                    })
-                });
-            }));
-            
-            renderPagination(true);
-        } catch (error) {
-            console.error("Ошибка при обновлении цен:", error);
-        }
-    });
-    
-    totalValueBtn.addEventListener("click", async () => {
-        try {
-            const response = await fetch(API_URL);
-            const products = await response.json();
-            const total = products.reduce((sum, product) => sum + product.price, 0);
-            catalog.innerHTML = `<p class="full-price">${total}₽</p>`;
-        } catch (error) {
-            console.error("Ошибка при расчете общей стоимости:", error);
-        }
     });
 }
 

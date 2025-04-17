@@ -49,6 +49,15 @@
     		background-color: #7b56f1;
     	}
 	}
+	&__checkboxes {
+		width: 100%;
+		margin: 20px 0;
+		display: flex;
+		justify-content: center;
+	}
+	&__checkbox {
+		margin: 0 10px;
+	}
 }
 
 .catalog {
