@@ -57,18 +57,21 @@ function initRangeSlider() {
   function setupHandle(handle, isMin) {
     let isDragging = false;
     
-    // Починить залипание
     handle.addEventListener("mousedown", (e) => {
       isDragging = true;
-      document.addEventListener("mousemove", moveHandler);
-      document.addEventListener("mouseup", () => {
+      
+      const mouseUpHandler = () => {
         isDragging = false;
-
-        // Пагинация
+        
+        // Пагинация рендер
         renderPagination(true, `?price_gte=${min}&price_lte=${max}`);
-
+        
         document.removeEventListener("mousemove", moveHandler);
-      });
+        document.removeEventListener("mouseup", mouseUpHandler);
+      };
+      
+      document.addEventListener("mousemove", moveHandler);
+      document.addEventListener("mouseup", mouseUpHandler);
     });
     
     function moveHandler(e) {
