@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Catalog</title>
+	<script type="module" src="/src/main.js" defer></script>
+	<script type="module" src="/src/loader/loadCarts.js" defer></script>
+</head>
+<body>
+	<widget-header></widget-header>
+	<div class="wrapper-logic__controls">
+		<button class="wrapper-logic__button" id="order">Оформить заказ</button>
+	</div>
+	<div class="catalog" id="catalog"></div>
+	<div class="pagination" id="pagination"></div>
+	<widget-footer></widget-footer>
+</body>
+</html>
+
+<div class="order__product">
+	<p class="order__name"></p>
+	<input type="number" min="0" max="10" step="1" value="1" class="order__input">
+</div>

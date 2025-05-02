@@ -23,7 +23,7 @@
     	width: 300px;
     	&:focus {
     		outline: none;
-    		border-color: #c0392b;
+    		border-color: #7b56f1;
     	}
 	}
 	&__categories {
@@ -33,7 +33,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		margin: 10px 0 0 0;
+		padding: 10px 0 0 0;
+		background: #1E313B;
 	}
 	&__button {
 		background-color: #FFF;
@@ -46,8 +47,18 @@
 
     	&:hover {
     		color: #FFF;
-    		background-color: #c0392b;
+    		background-color: #7b56f1;
     	}
+	}
+	&__checkboxes {
+		width: 100%;
+		margin: 20px 0;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	&__checkbox {
+		margin: 0 10px;
 	}
 }
 
@@ -72,8 +83,9 @@
 	transition: all 0.3s ease;
 	cursor: pointer;
 	box-shadow: 3px 3px 10px #000;
-	height: 405px;
+	height: 445px;
 	animation: fadeIn 0.6s ease-out;
+	position: relative;
 
 	&:hover {
 		transform: scale(1.02);
@@ -100,6 +112,28 @@
 		font-size: 16px;
 		font-weight: 300;
 	}
+	&__buttons {
+		display: flex;
+		position: absolute;
+		bottom: 0;
+	}
+	&__button {
+		width: 140px;
+		height: 40px;
+		font-weight: bold;
+		transition: background 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+		&:first-child {
+			border-radius: 5px 0 0 0;
+		}
+		&:last-child {
+			border-radius: 0 5px 0 0;
+		}
+
+		&:hover {
+			background: #7b56f1;
+		}
+	}
 }
 
 .no-products {
@@ -116,8 +150,77 @@
 	font-size: 52px;
 }
 
+.pagination {
+	display: flex;
+	justify-content: center;
+	padding: 10px 0;
+	background: #1E313B;
+	&__button {
+		width: 30px;
+		height: 30px;
+		border-radius: 5px;
+		font-size: 16px;
+		margin: 0 5px 0 0;
+		&:hover {
+			background: #7b56f1;
+		}
+		&_active {
+			background: #7b56f1;
+		}
+	}
+}
+
 // -----Анимации-----
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
+}
+
+// -----Заказ-----
+.order {
+	display: flex;
+	flex-direction: column;
+	&__product {
+		display: flex;
+		justify-content: space-between;
+		margin: 10px 0 0 0;
+	}
+	&__name {
+	}
+	&__input {
+		padding: 0 0 0 10px;
+	}
+	&__hr {
+		margin: 20px 0;
+		border: none;
+  	border-top: 3px double #333;
+  	color: #333;
+  	overflow: visible;
+  	text-align: center;
+  	height: 5px;
+
+  	&::after {
+  		background: #fff;
+  		content: "§";
+  		padding: 0 4px;
+  		position: relative;
+  		top: -13px;
+  	}
+	}
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		color: #000;
+	}
+	&__sum {
+	}
+	&__button {
+		margin: 10px 0 0 0;
+		font-size: 24px;
+		border-radius: 3px;
+
+		&:hover {
+			color: #000;
+		}
+	}
 }
