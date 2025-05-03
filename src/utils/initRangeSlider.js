@@ -63,7 +63,6 @@ function initRangeSlider() {
       const mouseUpHandler = () => {
         isDragging = false;
         
-        // Пагинация рендер
         renderPagination(true, `?price_gte=${min}&price_lte=${max}`);
         
         document.removeEventListener("mousemove", moveHandler);

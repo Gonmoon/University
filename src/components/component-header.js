@@ -32,7 +32,7 @@ export class ComponentHeader extends HTMLElement {
                     </li>
                   </ul>
                 </nav>
-                <a href="http://localhost:5173/catalog.html" class="header__button button">Buy now</a>
+                <a href="http://localhost:5173/auth.html" class="header__button button">Entrance</a>
             </header>
         `;
     }

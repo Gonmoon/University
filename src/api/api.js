@@ -1,5 +1,6 @@
 const API_URL = "http://localhost:3000/design_products";
 const FAVORITES_URL = "http://localhost:3000/favorites";
 const CART_URL = "http://localhost:3000/cart";
+const USERS_URL = "http://localhost:3000/users";
 
-export { API_URL, FAVORITES_URL, CART_URL };
+export { API_URL, FAVORITES_URL, CART_URL, USERS_URL };

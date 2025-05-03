@@ -1,4 +1,5 @@
 import "../styles/auth/style.scss";
+import { USERS_URL } from "../api/api.js";
 
 import { initPopup } from "../utils/initPopup.js"
 import { ComponentPopup } from "../components/component-popup.js";
@@ -16,7 +17,90 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
+// Выход
+// function logout() {
+//   localStorage.removeItem('user');
+//   // window.location.href = '/';
+// }
+
+function getFormData() {
+  return {
+    firstName: document.getElementById('first-name').value.trim(),
+    lastName: document.getElementById('last-name').value.trim(),
+    middleName: document.getElementById('middle-name').value.trim(),
+    birthDate: document.getElementById('birth-date').value,
+    phone: document.getElementById('phone').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    nickname: document.getElementById('nickname').value.trim(),
+    password: getPasswordValue()
+  };
+}
+
+function getPasswordValue() {
+  const passwordOption = document.getElementById('password-option').value;
+  if (passwordOption === 'manual') {
+    return document.getElementById('password').value;
+  } else {
+    return document.getElementById('auto-password').value;
+  }
+}
+
+async function registerUser(data) {
+  try {
+    const response = await fetch(USERS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Ошибка регистрации');
+    }
+
+    return await response.json();
+  } catch (err) {
+    console.error('Registration failed:', err);
+    alert(`Ошибка регистрации: ${err.message}`);
+    throw err;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('login-form');
+  const usernameInput = document.getElementById('login-username');
+  const passwordInput = document.getElementById('login-password');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
+
+    try {
+      let response = await fetch(USERS_URL);
+      const users = await response.json();
+      const user = users.find(u => u.nickname === username && u.password === password);
+
+      if (user) {
+        localStorage.setItem('user', JSON.stringify({
+          id: user.id,
+          email: user.email,
+          nickname: user.nickname
+        }));
+
+        alert('Успешный вход!');
+        window.location.href = '/';
+      } else {
+        alert('Неверный логин или пароль');
+      }
+    } catch (err) {
+      alert(`Ошибка входа: ${err.message}`);
+    }
+  });
+
   const form = document.getElementById('registration-form');
   const nickname = document.getElementById('nickname');
   const regenBtn = document.getElementById('regen-nickname');
@@ -59,6 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return (fn + ln + rand + suffix).replace(/[^a-zA-Zа-яА-Я0-9_]/g, '');
   }
 
+  async function checkNicknameExists(nickname) {
+    const response = await fetch(`${USERS_URL}?nickname=${encodeURIComponent(nickname)}`);
+    const data = await response.json();
+    return data.length > 0;
+  }
+
   regenBtn.addEventListener('click', () => {
     if (nicknameAttempts < 5) {
       nickname.value = generateNickname();
@@ -88,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     autoPassword.value = pwd;
   });
 
-  form.addEventListener('input', () => {
+  form.addEventListener('input', async () => {
     const phone = document.getElementById('phone');
     const birth = document.getElementById('birth-date');
     const email = document.getElementById('email');
@@ -98,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const firstName = document.getElementById('first-name');
     const lastName = document.getElementById('last-name');
     const middleName = document.getElementById('middle-name');
+    const nickname = document.getElementById('nickname');
 
     [phone, birth, email, pass, passConfirm, firstName, lastName, middleName].forEach(clearError);
 
@@ -115,6 +206,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const emailValid = /\S+@\S+\.\S+/.test(email.value.trim());
     if (!emailValid) showError(email, 'Некорректный email');
+
+    const nicknameValue = nickname.value.trim();
+    let nicknameValid = nicknameValue.length > 0;
+    
+    if (nicknameValid) {
+      const exists = await checkNicknameExists(nicknameValue);
+      if (exists) {
+        nicknameValid = false;
+        showError(nickname, 'Этот никнейм уже занят');
+      } else {
+        clearError(nickname);
+      }
+    } else {
+      showError(nickname, 'Введите никнейм');
+    }
 
     const birthDate = new Date(birth.value);
     const today = new Date();
@@ -136,15 +242,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const termsValid = terms.checked;
 
-    submitBtn.disabled = !(phoneValid && emailValid && birthValid && passwordValid && termsValid && nameValid && lastNameValid && middleNameValid);
+    submitBtn.disabled = !(phoneValid && emailValid && birthValid && passwordValid && termsValid && nameValid && lastNameValid && middleNameValid && nicknameValid);
   });
 
   agreement.addEventListener('click', (e) => {
   	initPopup("Agreement", "Lorem");
   })
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
+    
+    const formData = getFormData();
+
+    await registerUser(formData);
     alert('Регистрация прошла успешно!');
     form.reset();
     submitBtn.disabled = true;
