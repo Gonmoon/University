@@ -29,8 +29,71 @@ async function renderCatalog(items) {
         `;
     });
 
-    await initFavorites();
-    await initCart();
+    function checkFavoritesStatus() {
+        const buttons = catalog.querySelectorAll(".favorite");
+    
+        let favorites = JSON.parse(localStorage.getItem("favorite")) || [];
+    
+        for (const btn of buttons) {
+            const productId = btn.dataset.id;
+            let isFavorite = favorites.some(item => item.id === productId);
+    
+            btn.textContent = isFavorite ? "Убрать из избранного" : "В избранное";
+    
+            btn.addEventListener("click", (e) => {
+                favorites = JSON.parse(localStorage.getItem("favorite")) || [];
+    
+                if (favorites.some(item => item.id === productId)) {
+                    favorites = favorites.filter(item => item.id !== productId);
+                    btn.textContent = "В избранное";
+                } else {
+                    const productData = {
+                        id: productId
+                    };
+                    favorites.push(productData);
+                    btn.textContent = "Убрать из избранного";
+                }
+
+                localStorage.setItem("favorite", JSON.stringify(favorites));
+            });
+        }
+    }
+
+
+    function checkCartStatus() {
+        const buttons = catalog.querySelectorAll(".cart");
+    
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+        for (const btn of buttons) {
+            const productId = btn.dataset.id;
+            let isCart = cart.some(item => item.id === productId);
+    
+            btn.textContent = isCart ? "Убрать из корзины" : "В корзину";
+    
+            btn.addEventListener("click", (e) => {
+                cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+                if (cart.some(item => item.id === productId)) {
+                    cart = cart.filter(item => item.id !== productId);
+                    btn.textContent = "В корзину";
+                } else {
+                    const productData = {
+                        id: productId
+                    };
+                    cart.push(productData);
+                    btn.textContent = "Убрать из корзины";
+                }
+                
+                localStorage.setItem("cart", JSON.stringify(cart));
+            });
+        }
+    }
+
+    checkFavoritesStatus();
+    checkCartStatus();
+    // await initFavorites();
+    // await initCart();
 }
 
 export { renderCatalog };

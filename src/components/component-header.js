@@ -2,6 +2,8 @@ export class ComponentHeader extends HTMLElement {
     constructor() {
         super();
 
+        let userState = localStorage.getItem("user");
+
         this.innerHTML = `
             <header class="header">
                 <div class="header__logo">
@@ -19,8 +21,11 @@ export class ComponentHeader extends HTMLElement {
                     <li class="header__li">
                         <a href="" class="header__link">About</a>
                     </li>
-                    <li class="header__li">
-                        <a href="http://localhost:5173/catalog.html" class="header__link">Pricing</a></li>
+                    ${userState ? `
+                        <li class="header__li">
+                            <a href="http://localhost:5173/catalog.html" class="header__link">Buy</a>
+                        </li>
+                        ` : ""}
                     <li class="header__li header__li_fix">
                         <a href="" class="header__link">Open positions</a>
                     </li>
@@ -32,8 +37,40 @@ export class ComponentHeader extends HTMLElement {
                     </li>
                   </ul>
                 </nav>
-                <a href="http://localhost:5173/auth.html" class="header__button button">Entrance</a>
+                <a href="#" id="logoutBtn" class="header__button button">${userState ? "LogOut" : "SignIn"}</a>
             </header>
         `;
+
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        logoutBtn.addEventListener("click", async () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const favorites = JSON.parse(localStorage.getItem('favorite') || '[]');
+        
+            if (user && user.id) {
+                try {
+                    await fetch(`http://localhost:3000/users/${user.id}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            cart,
+                            favorites
+                        })
+                    });
+        
+                    localStorage.removeItem('user');
+                    localStorage.removeItem('cart');
+                    localStorage.removeItem('favorite');
+                    window.location.href = '/';
+                } catch (error) {
+                    console.error("Ошибка при сохранении данных перед выходом:", error);
+                }
+            } else {
+                window.location.href = '/auth.html';
+            }
+        });
     }
 }

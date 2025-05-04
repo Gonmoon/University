@@ -1,18 +1,29 @@
 import "../styles/catalog/style.scss";
 import { renderPagination } from "../utils/catalog/renderPagination.js";
-import { API_URL, FAVORITES_URL, CART_URL } from "../api/api.js";
+import { API_URL, FAVORITES_URL, CART_URL, ORDER_URL } from "../api/api.js";
 
 import { initPopup } from "../utils/initPopup.js"
 import { ComponentPopup } from "../components/component-popup.js";
 customElements.define("widget-popup", ComponentPopup);
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    renderPagination(true, "", 1, CART_URL);
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+   
+    if(cart.length === 0) {
+      const catalog = document.getElementById("catalog");
+      catalog.innerHTML = '<p class="no-products">Товары не найдены</p>';
+    } else {
+      const ids = cart.map(item => item.id);
+      const query = `?${ids.map(id => `id=${id}`).join('&')}`;
+      renderPagination(true, query, 1, API_URL);
+    }
 
     const order = document.getElementById("order")    
     order.addEventListener("click", () => {
-        fetch(CART_URL)
+        const ids = cart.map(item => item.id);
+        const query = `?${ids.map(id => `id=${id}`).join('&')}`;
+        fetch(`${API_URL}${query}`)
             .then(response => response.json())
             .then(products => {
                 let info = "<div class=\"order\">";
@@ -63,25 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     result.innerHTML = "Заказ оформлен";
                     execute.style.display = "none";
 
-                    fetch(CART_URL)
-                       .then(response => response.json())
-                       .then(cartItems => {
-                            const deleteRequests = cartItems.map(item => 
-                                fetch(`${CART_URL}/${item.id}`, {
-                                  method: "DELETE"
-                                }).then(res => {
-                                  if (!res.ok) {
-                                    throw new Error(`Ошибка при удалении товара ${item.id}`);
-                                  }
-                                  return res;
-                                })
-                            );
-                            
-                            return Promise.all(deleteRequests);
-                        })
-                        .then(() => {
-                            renderPagination(true, "", 1, CART_URL);
-                        });
+                    const user = JSON.parse(localStorage.getItem("user") || "{}");
+                    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+                    
+                    fetch(`${ORDER_URL}${query}`, {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        [user.nickname]: cart
+                      })
+                    });
+
+                    localStorage.removeItem("cart");
+                    const catalog = document.getElementById("catalog");
+                    catalog.innerHTML = '<p class="no-products">Товары не найдены</p>';
                 });
             })
     });

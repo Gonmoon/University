@@ -17,12 +17,6 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-// Выход
-// function logout() {
-//   localStorage.removeItem('user');
-//   // window.location.href = '/';
-// }
-
 function getFormData() {
   return {
     firstName: document.getElementById('first-name').value.trim(),
@@ -75,22 +69,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+  
     const username = usernameInput.value.trim();
     const password = passwordInput.value;
-
+  
     try {
-      let response = await fetch(USERS_URL);
+      const response = await fetch(USERS_URL);
       const users = await response.json();
       const user = users.find(u => u.nickname === username && u.password === password);
-
+  
       if (user) {
         localStorage.setItem('user', JSON.stringify({
           id: user.id,
           email: user.email,
           nickname: user.nickname
         }));
-
+  
+        if (user.cart) {
+          localStorage.setItem('cart', JSON.stringify(user.cart));
+        } else {
+          localStorage.removeItem('cart');
+        }
+  
+        if (user.favorites) {
+          localStorage.setItem('favorite', JSON.stringify(user.favorites));
+        } else {
+          localStorage.removeItem('favorite');
+        }
+  
         alert('Успешный вход!');
         window.location.href = '/';
       } else {
@@ -100,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(`Ошибка входа: ${err.message}`);
     }
   });
+
 
   const form = document.getElementById('registration-form');
   const nickname = document.getElementById('nickname');
