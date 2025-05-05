@@ -26,7 +26,8 @@ function getFormData() {
     phone: document.getElementById('phone').value.trim(),
     email: document.getElementById('email').value.trim(),
     nickname: document.getElementById('nickname').value.trim(),
-    password: getPasswordValue()
+    password: getPasswordValue(),
+    role: "user"
   };
 }
 
@@ -82,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('user', JSON.stringify({
           id: user.id,
           email: user.email,
-          nickname: user.nickname
+          nickname: user.nickname,
+          role: user.role
         }));
   
         if (user.cart) {
@@ -96,8 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           localStorage.removeItem('favorite');
         }
-  
-        alert('Успешный вход!');
         window.location.href = '/';
       } else {
         alert('Неверный логин или пароль');
@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(`Ошибка входа: ${err.message}`);
     }
   });
-
 
   const form = document.getElementById('registration-form');
   const nickname = document.getElementById('nickname');

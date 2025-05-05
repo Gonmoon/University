@@ -4,6 +4,8 @@ export class ComponentHeader extends HTMLElement {
 
         let userState = localStorage.getItem("user");
 
+        let role = userState ? JSON.parse(userState).role : "";
+
         this.innerHTML = `
             <header class="header">
                 <div class="header__logo">
@@ -25,16 +27,19 @@ export class ComponentHeader extends HTMLElement {
                         <li class="header__li">
                             <a href="http://localhost:5173/catalog.html" class="header__link">Buy</a>
                         </li>
+                        <li class="header__li header__li_fix">
+                            <a href="http://localhost:5173/feedback.html" class="header__link">Feedback</a>
+                        </li>
                         ` : ""}
-                    <li class="header__li header__li_fix">
-                        <a href="" class="header__link">Open positions</a>
-                    </li>
                     <li class="header__li">
                         <a href="" class="header__link">Blog</a>
                     </li>
-                    <li class="header__li">
-                        <a href="" class="header__link">Template</a>
-                    </li>
+                    ${role === "admin" ?
+                        `<li class="header__li">
+                            <a href="http://localhost:5173/admin.html" class="header__link">Settings</a>
+                         </li>`
+                    : ""}
+                    
                   </ul>
                 </nav>
                 <a href="#" id="logoutBtn" class="header__button button">${userState ? "LogOut" : "SignIn"}</a>
