@@ -100,7 +100,7 @@ class AdminFeedbackComponent extends HTMLElement {
         }
       });
   
-      list.querySelectorAll('.delete-btn').forEach(button => {
+      list.querySelectorAll('.container__delete').forEach(button => {
         button.addEventListener('click', async (e) => {
           const nickname = e.target.dataset.user;
           const feedbackId = e.target.dataset.id;
