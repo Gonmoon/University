@@ -3,6 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	color: #000;
+	width: 1000px;
 	&__title {
 		font-weight: bold;
 		font-size: 32px;
@@ -75,6 +76,8 @@
 	}
 }
 .product-list {
+	overflow-y: scroll;
+	height: 740px;
 	&>li {
 		cursor: pointer;
 		font-size: 18px;
@@ -84,4 +87,9 @@
 			color: #794EFF;
 		}
 	}
+}
+
+.popup__main {
+	margin: 50px 0;
+	width: 50%;
 }

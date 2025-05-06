@@ -1,0 +1,513 @@
+{
+  "design_products": [
+    {
+      "id": 1,
+      "name": "Скандинавский торшер",
+      "category": "Освещение",
+      "price": 5222,
+      "material": "Металл, текстиль",
+      "description": "Минималистичный торшер с тканевым абажуром ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Скандинавский",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 2,
+      "name": "Кресло Eames Lounge",
+      "category": "Мебель",
+      "price": 26214,
+      "material": "Кожа, фанера",
+      "description": "Классическое кресло с оттоманкой ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Модерн середины века",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 3,
+      "name": "Геометрический ковер",
+      "category": "Текстиль",
+      "price": 3964,
+      "material": "Шерсть",
+      "description": "Классическое",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Современный",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 4,
+      "name": "Настольная лампа Artemide",
+      "category": "Освещение",
+      "price": 6795,
+      "material": "Освещение",
+      "description": "Дизайнерская лампа с регулируемой яркостью  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Баухаус",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 5,
+      "name": "Подвесное кресло Egg",
+      "category": "Мебель",
+      "price": 14219,
+      "material": "Ротанг, сталь",
+      "description": "Кресло для отдыха с подставкой  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Бохо",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 6,
+      "name": "Зеркало в форме солнца",
+      "category": "Декор",
+      "price": 8913,
+      "material": "Зеркало, латунь",
+      "description": "Декоративное зеркало с лучами  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Ар-деко",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 7,
+      "name": "Стол Noguchi",
+      "category": "Мебель",
+      "price": 18811,
+      "material": "Стекло, дерево",
+      "description": "Скульптурный журнальный столик  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Модернизм",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 8,
+      "name": "Керамическая ваза",
+      "category": "Декор",
+      "price": 2622,
+      "material": "-",
+      "description": "Ваза ручной работы с глазурью  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Ремесленный",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "name": "Диван Barcelona",
+      "category": "Мебель",
+      "price": 50000,
+      "material": "Кожа, сталь",
+      "style": "Баухаус",
+      "description": "Знаковый дизайн XX века",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false,
+      "id": 9
+    },
+    {
+      "id": 10,
+      "name": "Акустическая панель",
+      "category": "Декор",
+      "price": 6018,
+      "material": "Дерево, ткань",
+      "description": "Функциональный настенный декор  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Современный",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 11,
+      "name": "Подушки с этническим принтом",
+      "category": "Текстиль",
+      "price": 2334,
+      "material": "Лен, хлопок",
+      "description": "Набор из 3 декоративных подушек  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Этника",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 12,
+      "name": "Подвесной светильник PH5",
+      "category": "Освещение",
+      "price": 11198,
+      "material": "Металл, пластик",
+      "description": "Классика датского дизайна  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Скандинавский",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 13,
+      "name": "Столик из слэба дуба",
+      "category": "Мебель",
+      "price": 15121,
+      "material": "Дуб, металл",
+      "description": "Журнальный столик с натуральной текстурой  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Лофт",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 14,
+      "name": "Полка-соты",
+      "category": "Мебель",
+      "price": 4090,
+      "material": "Фанера",
+      "description": "Модульная настенная система  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Современный",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 15,
+      "name": "3D подушка",
+      "category": "Текстиль",
+      "price": 1405,
+      "material": "Полиэстер",
+      "description": "Подушка с оптической иллюзией  ",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Футуризм",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 16,
+      "name": "Подвесной светильник Bubble",
+      "category": "Освещение",
+      "price": 8745,
+      "material": "Стекло, металл",
+      "description": "Современный светильник с эффектом пузырей",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Современный",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 17,
+      "name": "Дизайнерский шкаф-купе",
+      "category": "Мебель",
+      "price": 35480,
+      "material": "Дерево, зеркало",
+      "description": "Вместительный шкаф с зеркальными дверями",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Модерн",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 19,
+      "name": "Настольная лампа Pipistrello",
+      "category": "Освещение",
+      "price": 12500,
+      "material": "Акрил, алюминий",
+      "description": "-",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Ретро",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 20,
+      "name": "Журнальный столик Tulip",
+      "category": "Мебель",
+      "price": 28990,
+      "material": "Мрамор, сталь",
+      "description": "Классический столик на одной ножке",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Модерн середины века",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 21,
+      "name": "Декоративные подушки Velvet",
+      "category": "-",
+      "price": 3200,
+      "material": "Велюр, полиэстер",
+      "description": "Набор из 2 бархатных подушек",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Ар-деко",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 22,
+      "name": "Настенная карта мира",
+      "category": "Декор",
+      "price": 6890,
+      "material": "Дерево, бумага",
+      "description": "Винтажная карта мира в деревянной раме",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Ретро",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 23,
+      "name": "Торшер Arco",
+      "category": "Освещение",
+      "price": 42300,
+      "material": "Мрамор, сталь",
+      "description": "Знаковый торшер с изогнутой стойкой",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Модернизм",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 24,
+      "name": "Книжный шкаф Billy",
+      "category": "Мебель",
+      "price": 12990,
+      "material": "ДСП, стекло",
+      "description": "Классический книжный шкаф с стеклянными дверцами",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Скандинавский",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "name": "Льняные шторы",
+      "category": "Мебель",
+      "price": 7450,
+      "material": "Лен, хлопок",
+      "style": "Эко",
+      "description": "Натуральные шторы с ручной строчкой",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false,
+      "id": 25
+    },
+    {
+      "id": 26,
+      "name": "Настольная лампа Panthella",
+      "category": "Освещение",
+      "price": 18700,
+      "material": "Пластик, металл",
+      "description": "-",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Поп-арт",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 27,
+      "name": "Обеденный стол Extendable",
+      "category": "Мебель",
+      "price": 45600,
+      "material": "Дуб, сталь",
+      "description": "Раздвижной стол для большой компании",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Индустриальный",
+      "in_stock": false,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 28,
+      "name": "Декоративное зеркало в раме",
+      "category": "Декор",
+      "price": 11200,
+      "material": "Зеркало, дерево",
+      "description": "Зеркало в деревянной раме ручной работы",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Рустик",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 29,
+      "name": "Бра Snoopy",
+      "category": "Освещение",
+      "price": 9800,
+      "material": "Керамика, металл",
+      "description": "-",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Поп-арт",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "id": 30,
+      "name": "Комод с 4 ящиками",
+      "category": "Мебель",
+      "price": 23450,
+      "material": "МДФ, шпон",
+      "description": "Функциональный комод с мягкими ящиками",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "style": "Современный",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false
+    },
+    {
+      "name": "Что-то",
+      "category": "Мебель",
+      "price": 121212,
+      "material": "Стекло",
+      "style": "Ремесленный",
+      "description": "Что-то",
+      "photo_url": "https://koshka.top/uploads/posts/2021-11/1636807040_5-koshka-top-p-koshki-dimchatikh-kotyat-5.jpg",
+      "in_stock": true,
+      "favorites": false,
+      "cart": false,
+      "id": 31
+    }
+  ],
+  "users": [
+    {
+      "firstName": "sdfg",
+      "lastName": "asdf",
+      "middleName": "fsasd",
+      "birthDate": "1999-02-23",
+      "phone": "+375254242456",
+      "email": "gonmoondark@gmail.com",
+      "nickname": "sdfasd753",
+      "password": "8mcoaFSk@GEc",
+      "role": "user",
+      "id": 1,
+      "cart": [],
+      "favorites": []
+    },
+    {
+      "firstName": "рол",
+      "lastName": "рол",
+      "middleName": "ыва",
+      "birthDate": "2000-01-01",
+      "phone": "+375254242456",
+      "email": "gonmoondark@gmail.com",
+      "nickname": "564_dev",
+      "password": "Dk&Je17iSQZv",
+      "role": "user",
+      "id": 2,
+      "cart": [],
+      "favorites": []
+    },
+    {
+      "firstName": "admin",
+      "lastName": "admin",
+      "middleName": "admin",
+      "birthDate": "1555-02-23",
+      "phone": "+375254242456",
+      "email": "gonmoondark@gmail.com",
+      "nickname": "admin",
+      "password": "admin",
+      "role": "admin",
+      "id": 3,
+      "cart": [],
+      "favorites": []
+    }
+  ],
+  "orders": [
+    {
+      "564_dev": [
+        {
+          "id": "1"
+        },
+        {
+          "id": "2"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "564_dev": [
+        {
+          "id": "1"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "564_dev": [
+        {
+          "id": "2"
+        },
+        {
+          "id": "3"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "564_dev": [
+        {
+          "id": "4"
+        },
+        {
+          "id": "3"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "sdfasd753": [
+        {
+          "id": "8"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "564_dev": [
+        {
+          "id": "9"
+        }
+      ],
+      "id": 6
+    }
+  ],
+  "feedback": [
+    {
+      "nickname": "564_dev",
+      "564_dev": [
+        "Настольная лампа Artemide — отзыв"
+      ],
+      "id": 1
+    },
+    {
+      "nickname": "sdfasd753",
+      "sdfasd753": [
+        "Керамическая ваза — dfs"
+      ],
+      "id": 2
+    }
+  ]
+}

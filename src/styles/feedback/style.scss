@@ -42,6 +42,10 @@
 	}
 	&__button {
 		width: 300px;
+		transition: background 0.3s ease;
+		&:hover {
+			background: #7b56f1;
+		}
 	}
 	&__feedbacks {
 		background: #1E313B;

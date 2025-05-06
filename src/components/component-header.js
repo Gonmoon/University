@@ -32,14 +32,13 @@ export class ComponentHeader extends HTMLElement {
                         </li>
                         ` : ""}
                     <li class="header__li">
-                        <a href="" class="header__link">Blog</a>
+                      <a href="#blog" class="header__link">Blog</a>
                     </li>
                     ${role === "admin" ?
                         `<li class="header__li">
                             <a href="http://localhost:5173/admin.html" class="header__link">Settings</a>
                          </li>`
                     : ""}
-                    
                   </ul>
                 </nav>
                 <a href="#" id="logoutBtn" class="header__button button">${userState ? "LogOut" : "SignIn"}</a>

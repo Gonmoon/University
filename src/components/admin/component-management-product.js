@@ -19,7 +19,7 @@ function removeError(input) {
   if (msg) msg.remove();
 }
 
-class AdminProductComponent extends HTMLElement {
+export class AdminProductComponent extends HTMLElement {
   constructor() {
     super();
   }
@@ -27,7 +27,6 @@ class AdminProductComponent extends HTMLElement {
   async connectedCallback() {
     this.innerHTML = `
       <div class="container-product">
-        <h2 class="container-product__title">Управление товарами</h2>
         <div class="container-product__wrapper">
           <form id="productForm" class="product-form">
             <input type="hidden" id="product-id" class="product-form__input" />
@@ -223,5 +222,3 @@ class AdminProductComponent extends HTMLElement {
     this.validateForm();
   }
 }
-
-customElements.define('management-product-component', AdminProductComponent);

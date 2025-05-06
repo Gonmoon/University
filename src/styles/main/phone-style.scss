@@ -61,7 +61,8 @@
 			color: #7b56f1;
 		}
 		&__nav {
-			position: absolute;
+			max-width: 320px;
+			position: fixed;
     		top: 0;
     		right: 0;
     		left: 0;
@@ -76,7 +77,7 @@
     		&::before {
     			content: '';
 				position: absolute;
-				top: 0;
+				top: 0px;
 				bottom: 0;
 				left: 0;
 				right: 0;
@@ -91,6 +92,7 @@
     			opacity: 1;
    				z-index: 100;
     			visibility: visible;
+    			min-height: 100vh;
     			&::before {
     				transform: skew(-14deg) translateX(0);
 				}
@@ -103,6 +105,7 @@
     		&.is-open a {
     			opacity: 1;
     			transform: translateY(0);
+    			font-size: 36px;
     		}
 		}
 		&__ul {
@@ -136,6 +139,7 @@
 		&__contact {
 			margin: 0;
 			padding: 10px;
+			width: 300px;
 		}
 		&__h2 {
 			font-size: 24px;
@@ -316,6 +320,7 @@
 			font-size: 48px;
     		line-height: 57.6px;
     		text-align: center;
+    		animation: none;
 		}
 		&__percent-info {
 			font-size: 20px;
@@ -499,7 +504,6 @@
 	}
 	.slider {
 		&__arrow-left {
-			display: none;
 		}
 		&__center {
 		}
@@ -527,35 +531,12 @@
     		line-height: 24px;
 		}
 		&__status {
-			margin: 0 0 100px 0;
-			position: relative;
-			&:before {
-				content: "";
-      			width: 62px;
-      			height: 63px;
-      			background: no-repeat center url("/arrow-left.svg");
-      			position: absolute;
-      			z-index: 2;
-      			top: -13px;
-      			left: 0px;
-			}
-			&:after {
-				content: "";
-      			width: 62px;
-      			height: 63px;
-      			background: no-repeat center url("/arrow-right.svg");
-      			position: absolute;
-      			z-index: 2;
-      			top: -13px;
-      			left: 260px;
-			}
 		}
 		&__status-block {
 		}
 		&__status-block_included {
 		}
 		&__arrow-right {
-			display: none;
 		}
 	}
 	.contact {
@@ -688,6 +669,7 @@
 		&__info {
 			margin: 0;
 			text-align: center;
+			animation: none;
 		}
 		&__h2 {
 			font-size: 60px;

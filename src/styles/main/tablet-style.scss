@@ -296,7 +296,7 @@
 	}
 	.slider {
 		&__arrow-left {
-			display: none;
+			width: 32px;
 		}
 		&__center {
 		}
@@ -322,35 +322,13 @@
     		line-height: 24px;
 		}
 		&__status {
-			margin: 0 0 100px 0;
-			position: relative;
-			&:before {
-				content: "";
-      			width: 62px;
-      			height: 63px;
-      			background: no-repeat center url("/arrow-left.svg");
-      			position: absolute;
-      			z-index: 2;
-      			top: -16px;
-      			left: 240px;
-			}
-			&:after {
-				content: "";
-      			width: 62px;
-      			height: 63px;
-      			background: no-repeat center url("/arrow-right.svg");
-      			position: absolute;
-      			z-index: 2;
-      			top: -16px;
-      			left: 460px;
-      		}
 		}
 		&__status-block {
 		}
 		&__status-block_included {
 		}
 		&__arrow-right {
-			display: none;
+			width: 32px;
 		}
 	}
 	.contact {

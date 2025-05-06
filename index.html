@@ -2,23 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <link rel="icon" type="image/svg+xml" href="/big-logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>molecule</title>
     <script type="module" src="/src/main.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
+      <div id="preloader">
+        <div class="loader"></div>
+      </div>
       <widget-header></widget-header>
       <section class="about">
         <div class="about__contact">
           <h2 class="about__h2">Molecule is a SaaS marketing template that's <span class="about__span-blue">easy to modify</span>.</h2>
           <p class="about__signature">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-          <form action="#" class="about__sing-up sing-up">
+          <!-- <form action="#" class="about__sing-up sing-up">
             <input type="text" class="sing-up__sing-up" placeholder="Enter your email">
             <button class="sing-up__button button button_white">Sign Up</button>
             <p class="sing-up__text">By clicking Sign Up you're confirming that you agree with our <a href="" class="sing-up__info">Terms and Conditions</a>.</p>
-          </form>
+          </form> -->
         </div>
         <div class="about__imgs">
           <img src="./page_b.svg" alt="img" class="about__img-1">
@@ -51,7 +56,9 @@
       </section>
       <section class="features">
         <div class="features__imgs">
-          <img src="./features-1.png" alt="img" class="features__img-1">
+          <button class="features__img-1 video-trigger" aria-label="Play video">
+            <img src="./features-1.png" alt="Play video">
+          </button>
           <img src="./features-2.png" alt="img" class="features__img-2">
         </div>
         <div class="features__article heading">
@@ -78,6 +85,13 @@
           </div>
         </div>
       </section>
+      <div class="video-modal hidden" id="videoModal">
+        <div class="video-modal__content">
+          <button class="video-modal__close" id="closeVideo">×</button>
+          <iframe width="560" height="315" src="https://www.youtube.com/watch?v=5TCvRlD1sSw" 
+            title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
       <section class="stats">
         <div class="stats__heading">
           <p class="stats__head">Stats</p>
@@ -141,23 +155,42 @@
           </div>
         </div>
       </section>
-      <section class="slider">
-        <img src="./arrow-left.svg" alt="arrow" class="slider__arrow-left">
-        <div class="slider__center">
-          <div class="slider__info">
-            <img src="./logo-slider.svg" alt="logo" class="slider__info-logo">
-            <h3 class="slider__info-p">"Using molecule for our web was the best decision we made last year — and we made a ton of great decisions, trust me!"</h3>
-            <img src="./human.png" alt="ava" class="slider__info-ava">
+      <section class="slider swiper">
+        <img src="./arrow-left.svg" alt="arrow" class="slider__arrow-left swiper-button-prev" />
+        <div class="slider__center swiper-wrapper">
+          <div class="slider__info swiper-slide">
+            <img src="./logo-slider.svg" alt="logo" class="slider__info-logo" />
+            <h3 class="slider__info-p">
+              "Using molecule for our web was the best decision we made last year!"
+            </h3>
+            <img src="./human.png" alt="ava" class="slider__info-ava" />
             <p class="slider__info-nik">Mark Watney</p>
             <p class="slider__info-signature">Marketing Director, Chill Industries</p>
           </div>
-          <div class="slider__status">
-            <div class="slider__status-block slider__status-block_included"></div>
-            <div class="slider__status-block"></div>
-            <div class="slider__status-block"></div>
+
+          <div class="slider__info swiper-slide">
+            <img src="./logo-slider.svg" alt="logo" class="slider__info-logo" />
+            <h3 class="slider__info-p">
+              "Molecule helped us speed up development 10x. It’s a no-brainer now."
+            </h3>
+            <img src="./human.png" alt="ava" class="slider__info-ava" />
+            <p class="slider__info-nik">Melissa Grant</p>
+            <p class="slider__info-signature">CTO, Lunar Tech</p>
+          </div>
+  
+          <div class="slider__info swiper-slide">
+            <img src="./logo-slider.svg" alt="logo" class="slider__info-logo" />
+            <h3 class="slider__info-p">
+              "The support and documentation are top notch. We couldn’t be happier."
+            </h3>
+            <img src="./human.png" alt="ava" class="slider__info-ava" />
+            <p class="slider__info-nik">John Miller</p>
+            <p class="slider__info-signature">Founder, BuildUp</p>
           </div>
         </div>
-        <img src="./arrow-right.svg" alt="arrow" class="slider__arrow-right">
+      
+        <img src="./arrow-right.svg" alt="arrow" class="slider__arrow-right swiper-button-next" />
+        <div class="slider__status swiper-pagination"></div>
       </section>
       <section class="contact">
         <div class="contact__wrapper">
@@ -165,14 +198,14 @@
             <div class="contact__h2">Don't miss out!</div>
             <h3 class="contact__p">Sign-up & we'll let you know as soon as we have something to show off. (Don't worry, we don't spam).</h3>
           </div>
-          <form action="#" class="contact__form">
+          <!-- <form action="#" class="contact__form">
             <input type="text" class="contact__sing-up" placeholder="Enter your email">
             <button class="contact__button button button_dark">Sign Up</button>
             <p class="contact__text">By clicking Sign Up you're confirming that you agree with our<a href="" class="contact__about"> Terms and Conditions</a>.</p>
-          </form>
+          </form> -->
         </div>
       </section>
-      <section class="blog">
+      <section class="blog" id="blog">
         <div class="blog__head-wrapper">
           <div class="blog__heading">
             <p class="blog__head">Blog</p>
@@ -229,5 +262,6 @@
       </section>
       <widget-footer></widget-footer>
     </div>
+    <button id="scrollToTop" class="scroll-to-top">↑</button>
   </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" type="image/svg+xml" href="/big-logo.svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Catalog</title>
 	<script type="module" src="/src/main.js" defer></script>
@@ -12,11 +13,15 @@
 	<h1 class="header-catalog">КОТалог</h1>
 	<div class="wrapper-logic">
 		<div class="wrapper-logic__controls">
-			<a href="http://localhost:5173/favorites.html" class="wrapper-logic__button">Избранное</a>
-			<a href="http://localhost:5173/carts.html" class="wrapper-logic__button">Корзина</a>
+			<a href="http://localhost:5173/favorites.html" class="wrapper-logic__button">
+				Избранное <span class="counter" id="favorite-counter">0</span>
+			</a>
+			<a href="http://localhost:5173/carts.html" class="wrapper-logic__button">
+				Корзина <span class="counter" id="cart-counter">0</span>
+			</a>
 		</div>
 		<input type="text" class="wrapper-logic__search" id="search" placeholder="Искать">
-		<select name="categories" id=	"sort" class="wrapper-logic__categories">
+		<select name="categories" id="sort" class="wrapper-logic__categories">
 			<option value="default">Сортировать по</option>
 			<option value="name">Название</option>
 			<option value="price">Цена(↑)</option>

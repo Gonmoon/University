@@ -1,6 +1,14 @@
 import { API_URL, ORDER_URL, FEEDBACK_URL } from "../../api/api.js";
 import "../../styles/feedback/style.scss";
 
+import { initPopup } from "../../utils/initPopup.js"
+import { ComponentPopup } from "../component-popup.js";
+customElements.define("widget-popup", ComponentPopup);
+
+
+import { AdminProductComponent } from "./component-management-product.js";
+customElements.define('management-product-component', AdminProductComponent);
+
 class AdminFeedbackComponent extends HTMLElement {
   constructor() {
     super();
@@ -14,6 +22,7 @@ class AdminFeedbackComponent extends HTMLElement {
           <select id="productSelect" class="container__select">
             <option value="">Все товары</option>
           </select>
+          <button class="container__button button" id="btn-product">Управление товарами</button>
         </div>
         <ul class="container__feedbacks" id="feedbacks"></ul>
       </div>
@@ -25,6 +34,10 @@ class AdminFeedbackComponent extends HTMLElement {
 
     this.querySelector('#userSelect').addEventListener('change', () => this.loadFeedbacks());
     this.querySelector('#productSelect').addEventListener('change', () => this.loadFeedbacks());
+
+    this.querySelector('#btn-product').addEventListener('click', () => {
+      initPopup("Управление товарами", `<management-product-component></management-product-component>`);
+    });
   }
 
   async populateUsers() {
