@@ -1,5 +1,6 @@
 import { API_URL } from "../../api/api.js";
 import "../../styles/adminProduct.scss";
+import { initAlert } from "../../utils/initAlert.js";
 
 function showError(input, message) {
   let msg = input.parentElement.querySelector('.error-msg');
@@ -170,6 +171,7 @@ export class AdminProductComponent extends HTMLElement {
       if (!res.ok) throw new Error('Ошибка при добавлении товара');
       this.resetForm();
       this.loadProducts();
+      initAlert("Товар добавлен!", 3000);
     } catch (err) {
       console.error(err);
     }
@@ -188,6 +190,7 @@ export class AdminProductComponent extends HTMLElement {
       if (!res.ok) throw new Error('Ошибка при обновлении товара');
       this.resetForm();
       this.loadProducts();
+      initAlert("Товар изменён!", 3000);
     } catch (err) {
       console.error(err);
     }
@@ -203,6 +206,7 @@ export class AdminProductComponent extends HTMLElement {
       if (!res.ok) throw new Error('Ошибка при удалении товара');
       this.resetForm();
       this.loadProducts();
+      initAlert("Товар удалён!", 3000);
     } catch (err) {
       console.error(err);
     }

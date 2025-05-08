@@ -5,6 +5,7 @@ import { initPopup } from "../../utils/initPopup.js"
 import { ComponentPopup } from "../component-popup.js";
 customElements.define("widget-popup", ComponentPopup);
 
+import { initAlert } from "../../utils/initAlert.js";
 
 import { AdminProductComponent } from "./component-management-product.js";
 customElements.define('management-product-component', AdminProductComponent);
@@ -132,12 +133,12 @@ class AdminFeedbackComponent extends HTMLElement {
             });
   
             this.loadFeedbacks();
+            initAlert("Отзыв удалён!", 3000);
           } catch (err) {
             console.error('Ошибка удаления отзыва:', err);
           }
         });
       });
-  
     } catch (err) {
       console.error('Ошибка загрузки отзывов:', err);
     }
