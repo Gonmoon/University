@@ -21,7 +21,7 @@ export class ComponentHeader extends HTMLElement {
                         <a href="http://localhost:5173" class="header__link">Home</a>
                     </li>
                     <li class="header__li">
-                        <a href="" class="header__link">About</a>
+                        <a href="http://localhost:5173/about.html" class="header__link">About</a>
                     </li>
                     ${userState ? `
                         <li class="header__li">

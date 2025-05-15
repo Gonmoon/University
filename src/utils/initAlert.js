@@ -17,7 +17,3 @@ export function initAlert(content, duration = 3000) {
   document.body.appendChild(alert);
   alert.show(content);
 }
-
-// import { initAlert } from "./utils/initAlert.js";
-
-// initAlert("sssss", 3000);

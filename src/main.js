@@ -60,31 +60,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Slider
-  const swiper = new Swiper('.swiper', {
-    loop: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    autoplay: {
-      delay: 2000,
-      disableOnInteraction: false,
-    },
-  });
+  // const swiper = new Swiper('.swiper', {
+  //   loop: true,
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     clickable: true,
+  //   },
+  //   autoplay: {
+  //     delay: 2000,
+  //     disableOnInteraction: false,
+  //   },
+  // });
 
   // Видео
-  document.querySelector('.video-trigger').addEventListener('click', () => {
-    document.getElementById('videoModal').classList.remove('hidden');
-  });
+  // document.querySelector('.video-trigger').addEventListener('click', () => {
+  //   document.getElementById('videoModal').classList.remove('hidden');
+  // });
 
-  document.getElementById('closeVideo').addEventListener('click', () => {
-    const modal = document.getElementById('videoModal');
-    modal.classList.add('hidden');
-    const iframe = modal.querySelector('iframe');
-    iframe.src = iframe.src;
-  });
+  // document.getElementById('closeVideo').addEventListener('click', () => {
+  //   const modal = document.getElementById('videoModal');
+  //   modal.classList.add('hidden');
+  //   const iframe = modal.querySelector('iframe');
+  //   iframe.src = iframe.src;
+  // });
 })
