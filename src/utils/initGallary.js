@@ -47,3 +47,37 @@ volumeControl.addEventListener("input", () => {
     currentAudio.volume = volumeControl.value;
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const parallaxSection = document.querySelector('.parallax-section');
+  const layers = document.querySelectorAll('.parallax-layer');
+  const reverseElement = document.querySelector('.reverse-element');
+
+  const layerSpeeds = {
+    'parallax-back': 0.1,
+    'parallax-middle': 0.5,
+    'parallax-front': 0.7
+  };
+
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.pageYOffset;
+    const sectionOffset = parallaxSection.offsetTop;
+    const sectionHeight = parallaxSection.offsetHeight;
+
+    if (scrollPosition > sectionOffset - window.innerHeight &&
+            scrollPosition < sectionOffset + sectionHeight) {
+
+      const offset = scrollPosition - sectionOffset;
+
+      layers.forEach(layer => {
+        const speed = layerSpeeds[layer.classList[1]] || 0;
+        const yPos = -(offset * speed);
+        layer.style.transform = `translate3d(0, ${yPos}px, 0)`;
+      });
+
+      reverseElement.style.transform = `translate3d(0, ${offset * 0.2}px, 0)`;
+    }
+  });
+
+  window.dispatchEvent(new Event('scroll'));
+});
