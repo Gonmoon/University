@@ -1,267 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="/big-logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>molecule</title>
-    <script type="module" src="/src/main.js" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div id="preloader">
-        <div class="loader"></div>
-      </div>
-      <widget-header></widget-header>
-      <section class="about">
-        <div class="about__contact">
-          <h2 class="about__h2">Molecule is a SaaS marketing template that's <span class="about__span-blue">easy to modify</span>.</h2>
-          <p class="about__signature">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-          <!-- <form action="#" class="about__sing-up sing-up">
-            <input type="text" class="sing-up__sing-up" placeholder="Enter your email">
-            <button class="sing-up__button button button_white">Sign Up</button>
-            <p class="sing-up__text">By clicking Sign Up you're confirming that you agree with our <a href="" class="sing-up__info">Terms and Conditions</a>.</p>
-          </form> -->
+    <title>Movie Search with OMDb API</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>OMDb</h1>
+        <p>The Open Movie Database</p>
+    </header>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search for movies..." id="searchInput">
+            <button class="search-button" id="searchButton">Search</button>
         </div>
-        <div class="about__imgs">
-          <img src="./page_b.svg" alt="img" class="about__img-1">
-          <img src="./page_o.svg" alt="img" class="about__img-2">
-          <img src="./page_g.svg" alt="img" class="about__img-3">
+        <div class="sort-controls">
+            <select id="sortBy" class="sort-select">
+                <option value="">Sort by...</option>
+                <option value="title-asc">Title (A-Z)</option>
+                <option value="title-desc">Title (Z-A)</option>
+                <option value="year-asc">Year (Oldest first)</option>
+                <option value="year-desc">Year (Newest first)</option>
+            </select>
         </div>
-        <div class="about__companies">
-          <p class="about__text">Used by the leading SaaS companies of tomorrow.</p>
-          <ul class="about__companies-loges">
-            <li class="about__li">
-              <img src="./logo-1.svg" alt="logo" class="about__companie-img">
-            </li>
-            <li class="about__li">
-              <img src="./logo-2.svg" alt="logo" class="about__companie-img">
-            </li>
-            <li class="about__li">
-              <img src="./logo-3.svg" alt="logo" class="about__companie-img">
-            </li>
-            <li class="about__li">
-              <img src="./logo-4.svg" alt="logo" class="about__companie-img">
-            </li>
-            <li class="about__li">
-              <img src="./logo-5.svg" alt="logo" class="about__companie-img">
-            </li>
-            <li class="about__li">
-              <img src="./logo-6.svg" alt="logo" class="about__companie-img">
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="features">
-        <div class="features__imgs">
-          <button class="features__img-1 video-trigger" aria-label="Play video">
-            <img src="./features-1.png" alt="Play video">
-          </button>
-          <img src="./features-2.png" alt="img" class="features__img-2">
-        </div>
-        <div class="features__article heading">
-          <p class="heading__head">Features</p>
-          <h2 class="heading__short-info">See how easy it is to <span class="heading__span-orange">edit Molecule</span> to<br class="none"> your liking.</h2>
-          <p class="heading__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-          <div class="features__full-info">
-            <div class="features__part-info features__part-info_1">
-              <h3 class="features__h3">Pages you'll use</h3>
-              <p class="features__local-info">Molecule doesn't come with 200+ page layout — it comes with the pages yo'll actually use.</p>
-            </div>
-            <div class="features__part-info features__part-info_2">
-              <h3 class="features__h3">Native image effects</h3>
-              <p class="features__local-info">Instead of having to add effects to images in an image editor, simply replace the existing images and all effects will appear.</p>
-            </div>
-            <div class="features__part-info features__part-info_fix features__part-info_3">
-              <h3 class="features__h3">Global typography</h3>
-              <p class="features__local-info">Change the body font once and every single line of text on the page will change.</p>
-            </div>
-            <div class="features__part-info features__part-info_4">
-              <h3 class="features__h3">Global colors</h3>
-              <p class="features__local-info">Change the global color swatches and see your colors change everywhere.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div class="video-modal hidden" id="videoModal">
-        <div class="video-modal__content">
-          <button class="video-modal__close" id="closeVideo">×</button>
-          <iframe width="560" height="315" src="https://www.youtube.com/watch?v=5TCvRlD1sSw" 
-            title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-      <section class="stats">
-        <div class="stats__heading">
-          <p class="stats__head">Stats</p>
-          <h2 class="stats__short-info">Teams all over the place have already used Molecule to get <span class="stats__span-green">stunning results</span>.</h2>
-        </div>
-        <article class="stats__info">
-          <h3 class="stats__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</h3>
-          <div class="stats__statistics">
-            <div class="stats__column">
-              <p class="stats__percent">87%</p>
-              <p class="stats__percent-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="stats__column">
-              <p class="stats__percent">99%</p>
-              <p class="stats__percent-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-        </article>
-      </section>
-      <section class="team">
-        <div class="team__heading">
-          <p class="team__head">Team</p>
-          <h2 class="team__short-info">Meet the <span class="team__span">talented team</span> behind the molecule SaaS template.</h2>
-          <p class="team__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
-          <button class="team__button button button_blue">Meet the team</button>
-        </div>
-        <div class="team__imgs">
-          <img src="./human-1.png" alt="img" class="team__img">
-          <img src="./human-2.png" alt="img" class="team__img">
-          <img src="./human-3.png" alt="img" class="team__img">
-        </div>
-      </section>
-      <section class="buy">
-        <img src="./big-logo.svg" alt="logo" class="buy__logo">
-        <h2 class="buy__h2">Think you've seen enough?</h2>
-        <p class="buy__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-        <div class="buy__buttons">
-          <button class="buy__button buy__button_first button button_white">Buy molecule</button>
-          <button class="buy__button buy__button_second button button_white">Read more</button>
-        </div>
-      </section>
-      <section class="process">
-        <div class="process__heading">
-          <p class="process__head">Process</p>
-          <h2 class="process__short-info">What steps are required to build a SaaS marketing site using the molecule template?</h2>
-          <button class="process__button button">Get molecule</button>
-        </div>
-        <div class="process__queue">
-          <div class="process__line"></div>
-          <div class="process__info-1">
-            <h3 class="process__h3">Get molecule</h3>
-            <p class="process__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-          <div class="process__info-2">
-            <h3 class="process__h3">Edit fonts, colors, images & text</h3>
-            <p class="process__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-          <div class="process__info-3">
-            <h3 class="process__h3">Publish!</h3>
-            <p class="process__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-          </div>
-        </div>
-      </section>
-      <section class="slider swiper">
-        <img src="./arrow-left.svg" alt="arrow" class="slider__arrow-left swiper-button-prev" />
-        <div class="slider__center swiper-wrapper">
-          <div class="slider__info swiper-slide">
-            <img src="./logo-slider.svg" alt="logo" class="slider__info-logo" />
-            <h3 class="slider__info-p">
-              "Using molecule for our web was the best decision we made last year!"
-            </h3>
-            <img src="./human.png" alt="ava" class="slider__info-ava" />
-            <p class="slider__info-nik">Mark Watney</p>
-            <p class="slider__info-signature">Marketing Director, Chill Industries</p>
-          </div>
-
-          <div class="slider__info swiper-slide">
-            <img src="./logo-slider.svg" alt="logo" class="slider__info-logo" />
-            <h3 class="slider__info-p">
-              "Molecule helped us speed up development 10x. It’s a no-brainer now."
-            </h3>
-            <img src="./human.png" alt="ava" class="slider__info-ava" />
-            <p class="slider__info-nik">Melissa Grant</p>
-            <p class="slider__info-signature">CTO, Lunar Tech</p>
-          </div>
-  
-          <div class="slider__info swiper-slide">
-            <img src="./logo-slider.svg" alt="logo" class="slider__info-logo" />
-            <h3 class="slider__info-p">
-              "The support and documentation are top notch. We couldn’t be happier."
-            </h3>
-            <img src="./human.png" alt="ava" class="slider__info-ava" />
-            <p class="slider__info-nik">John Miller</p>
-            <p class="slider__info-signature">Founder, BuildUp</p>
-          </div>
-        </div>
-      
-        <img src="./arrow-right.svg" alt="arrow" class="slider__arrow-right swiper-button-next" />
-        <div class="slider__status swiper-pagination"></div>
-      </section>
-      <section class="contact">
-        <div class="contact__wrapper">
-          <div class="contact__info">
-            <div class="contact__h2">Don't miss out!</div>
-            <h3 class="contact__p">Sign-up & we'll let you know as soon as we have something to show off. (Don't worry, we don't spam).</h3>
-          </div>
-          <!-- <form action="#" class="contact__form">
-            <input type="text" class="contact__sing-up" placeholder="Enter your email">
-            <button class="contact__button button button_dark">Sign Up</button>
-            <p class="contact__text">By clicking Sign Up you're confirming that you agree with our<a href="" class="contact__about"> Terms and Conditions</a>.</p>
-          </form> -->
-        </div>
-      </section>
-      <section class="blog" id="blog">
-        <div class="blog__head-wrapper">
-          <div class="blog__heading">
-            <p class="blog__head">Blog</p>
-            <h2 class="blog__short-info">The <span class="blog__span-blue">latest news</span> from Molecule.</h2>
-            <p class="blog__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <button class="blog__button button">View all</button>
-        </div>
-        <div class="blog__any-blogs">
-          <article class="blog__article article">
-            <img src="./blog-1.png" alt="img" class="article__img">
-            <h3 class="article__h3">How to drive sales in SaaS</h3>
-            <p class="article__p">Vestibulum sit amet urna turpis. Mauris euismod elit et nisi ultrices, ut faucibus orci tincidunt.</p>
-            <div class="article__user">
-              <img src="./human-1.png" alt="ava" class="article__ava">
-              <div class="article__user-info">
-                <p class="article__user-name">Dwight Schrute</p>
-                <p class="article__date">January 25, 2022 <span class="article__time-read">• 28 min read</span></p>
-              </div>
-            </div>
-          </article>
-          <article class="blog__article article none">
-            <img src="./blog-2.png" alt="img" class="article__img">
-            <h3 class="article__h3">Hiring the right talent</h3>
-            <p class="article__p">Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula.</p>
-            <div class="article__user">
-              <img src="./human-2.png" alt="ava" class="article__ava">
-              <div class="article__user-info">
-                <p class="article__user-name">Lexus Simonis</p>
-                <p class="article__date">January 25, 2022 <span class="article__time-read">• 21 min read</span></p>
-              </div>
-            </div>
-          </article>
-          <article class="blog__article article none">
-            <img src="./blog-3.png" alt="img" class="article__img">
-            <h3 class="article__h3">Is remote work for you? (Yes it is)</h3>
-            <p class="article__p">Duis tristique sed lorem a vestibulum. Cras commodo consequat orci, in convallis risus egestas non.</p>
-            <div class="article__user">
-              <img src="./human-3.png" alt="ava" class="article__ava">
-              <div class="article__user-info">
-                <p class="article__user-name">Doug Howell</p>
-                <p class="article__date">January 25, 2022 <span class="article__time-read">• 29 min read</span></p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="desig">
-        <div class="desig__info">
-          <h2 class="desig__h2">Ready to start designing?</h2>
-          <p class="desig__p">Molecule is available today!</p>
-        </div>
-        <button class="desig__button button button_white">Get Molecule</button>
-      </section>
-      <widget-footer></widget-footer>
+        <div class="loader" id="loader"></div>
+        <div class="error-message" id="errorMessage"></div>
+        <div class="movies-container" id="moviesContainer"></div>
+        <button class="load-more" id="loadMore" disabled>Load More</button>
     </div>
-    <button id="scrollToTop" class="scroll-to-top">↑</button>
-  </body>
+    <footer class="footer">
+        <p>Created on June 2025</p>
+        <a href="https://github.com/Gonmoon" target="_blank">GitHub</a>
+    </footer>
+</body>
 </html>
