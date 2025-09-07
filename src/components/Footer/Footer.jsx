@@ -7,7 +7,7 @@ export class Footer extends Component {
 	render() {
 		return (
 			<footer className="footer">
-					<NavList navList={this.props.navList} />
+				<NavList navList={this.props.navList} />
 			</footer>
 		)
 	}
