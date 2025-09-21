@@ -14,6 +14,7 @@ export default defineConfig({
       '@widgets': resolve(__dirname, 'src/widgets'),
       '@processes': resolve(__dirname, 'src/processes'),
       '@type': resolve(__dirname, 'src/types'),
+      '@assets': resolve(__dirname, 'src/assets'),
     },
   },
 });
