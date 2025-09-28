@@ -1,5 +1,7 @@
-.buttonContainer {}
+.buttonContainer {
+}
 .buttonText {
+	width: 100%;
 	border: 1px solid #db5c01;
 	border-radius: 8px;
 	cursor: pointer;
@@ -7,6 +9,8 @@
 	font-size: 18px;
 	color: #db5c01;
 	padding: 8px 15px;
+	text-align: center;
+	background: #1b1612;
 }
 
 .buttonText:hover {

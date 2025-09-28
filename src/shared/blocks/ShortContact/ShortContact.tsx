@@ -8,7 +8,7 @@ interface ShortContactProps {
 	text: string;
 }
 
-const ShortContact: React.FC<> = ({
+const ShortContact: React.FC = ({
 	info,
 	href,
 	text,

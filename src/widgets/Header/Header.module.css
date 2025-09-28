@@ -33,3 +33,9 @@
 .navLink:hover {
 	color: #db5c01;
 }
+
+@media screen and (max-width: 450px) {
+	.logoContainer {
+		margin: 0;
+	}
+}

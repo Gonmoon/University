@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { INavItem } from '@types/types';
 import Button from '@shared/components/Button';
 import styles from './Header.module.css';
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
       	<ul className={styles.navList}>
       		{navItems.map((item) => (
       			<li key={item.id} className={styles.navPoint}>
-      				<a href={item.href} className={styles.navLink}>{item.label}</a>
+              <Link to={item.href} className={styles.navLink}>{item.label}</Link>
       			</li>
       		))}
       	</ul>

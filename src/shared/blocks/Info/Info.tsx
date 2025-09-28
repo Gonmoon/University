@@ -4,7 +4,7 @@ import styles from './Info.module.css';
 interface InfoProps {
 	title: string;
 	text: string;
-	logo: string;
+	logo?: string;
 }
 
 const Info: React.FC<InfoProps> = ({
@@ -18,7 +18,7 @@ const Info: React.FC<InfoProps> = ({
 			<h2 className={styles.title}>{title}</h2>
 			<br />
 			<p className={styles.text}>{text}</p>
-			<img src={logo} alt="Logo" className={styles.infoImg}/>
+			{logo && <img src={logo} alt="Logo" className={styles.infoImg}/>}
 		</section>
 	)
 }
